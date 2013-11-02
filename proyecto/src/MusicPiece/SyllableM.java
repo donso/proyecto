@@ -1,5 +1,5 @@
 package MusicPiece;
 
-public class SyllableM {
+public class SyllableM extends MusicElement{
 
 }

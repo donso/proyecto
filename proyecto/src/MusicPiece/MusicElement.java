@@ -1,5 +1,5 @@
 package MusicPiece;
 
-public class MusicElement {
-
+public abstract class MusicElement {
+	int duration = 0;
 }

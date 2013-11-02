@@ -1,5 +1,5 @@
 package MusicPiece;
 
-public class Pause {
+public class Pause extends MusicElement{
 
 }
