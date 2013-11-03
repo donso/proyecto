@@ -2,10 +2,10 @@ import Lyrics.Lyrics;
 import MusicPiece.MusicPiece;
 
 
-public class main {
+public class Pruebas {
 	
 
-    public static void main (String [ ] args)
+    public static void main (String[] args)
     {
         //Usar diccionarios para procesar la letra y obtener las sílabas?
 
@@ -13,10 +13,9 @@ public class main {
 
         //Leer una letra
         Lyrics l =  new Lyrics(s);
-        System.out.println ("\nexaminar");
-        l.examinar();
+        l.depurar();
 
         //Transformar Lyric a MusicPiece
-        //MusicPiece m = new MusicPiece(l);
+        MusicPiece m = new MusicPiece(l);
     } 
 }

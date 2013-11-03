@@ -5,18 +5,33 @@ import java.util.Vector;
 public class Lyrics {
 	Vector<Phrase> p = new Vector<Phrase>(10);
 	
+	
+//	Los puntos separan frases.
+//	Los guiones separan sílabas.
+//	Los espacios separan palabras.
 	public Lyrics(String s){
 		String[] frases = s.split("\\.");
-		System.out.print("i");
 		for(int i = 0;i <frases.length ;i++){
-			System.out.print("\nd "+frases[i]);
-			p.addElement(new Phrase(frases[i]));
+			p.add(new Phrase(frases[i]));
 		}
 	}
 	
-	public void examinar(){
+	//Devuelve número de frases
+	public int size(){
+		return p.size();
+	}
+
+	//Devuelve sílabas de una frase
+	public Vector<Syllable> getSyllables(int i){
+		return p.get(i).getSyllables();
+	}
+	
+	
+	public void depurar(){
+		System.out.println("En Lyrics");
 		for(int i = 0;i <p.size() ;i++){
-			p.get(i).examinar();
+			p.get(i).depurar();
 		}		
 	}
+
 }

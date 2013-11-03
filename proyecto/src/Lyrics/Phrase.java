@@ -8,19 +8,25 @@ public class Phrase {
 	public Phrase(String s){
 		String[] palabras = s.split(" ");
 		String[] silabas;
-//		la ca-sa es a-zul
 		for(int i = 0;i <palabras.length ;i++){
 			silabas = palabras[i].split("-");
 			for(int j = 0;j<silabas.length ;j++)
-				p.addElement(new Syllable(silabas[j],j==silabas.length-1));
+				p.addElement(new Syllable(silabas[j],j==silabas.length-1)); //texto y última sílaba de palabra
 		}
 	}
 	
-	public void examinar(){
-		System.out.println("phrase in");
+	//Devuelve sílabas de la frase
+	public Vector<Syllable> getSyllables(){
+		return p;
+	}
+
+	public void depurar(){
+//		System.out.println("phrase in");
 		for(int i = 0;i <p.size() ;i++){
 //			System.out.print(p.indexOf(i));
-			p.get(i).examinar();
+			p.get(i).depurar();
 		}
 	}
+	
+	
 }
