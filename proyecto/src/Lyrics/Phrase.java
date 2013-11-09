@@ -3,30 +3,39 @@ package Lyrics;
 import java.util.Vector;
 
 public class Phrase {
-	Vector<Syllable> p = new Vector<Syllable>(10);
+	Vector<Syllable> syllables;
 	
+	//TODO eliminar constructor
 	public Phrase(String s){
-		String[] palabras = s.split(" ");
-		String[] silabas;
-		for(int i = 0;i <palabras.length ;i++){
-			silabas = palabras[i].split("-");
-			for(int j = 0;j<silabas.length ;j++)
-				p.addElement(new Syllable(silabas[j],j==silabas.length-1)); //texto y última sílaba de palabra
+		syllables = new Vector<Syllable>();
+		String[] silabas = s.split(" ");
+		int indice = 0;
+
+		silabas = s.split("-|_|,| |¿|\\?|!|¡");
+		int i = 0;
+		char ending ;
+		for(;i<silabas.length-1 ;i++){
+			indice = s.indexOf(silabas[i], indice);
+			ending = s.charAt( indice + silabas[i].length());
+			syllables.addElement(new Syllable(silabas[i], ending)); 
+			indice += silabas[i].length();
 		}
+		ending = '.';
+		syllables.addElement(new Syllable(silabas[i], ending)); 
 	}
 	
+
 	//Devuelve sílabas de la frase
 	public Vector<Syllable> getSyllables(){
-		return p;
+		return syllables;
 	}
 
+	
+	//TODO eliminar depurar
 	public void depurar(){
-//		System.out.println("phrase in");
-		for(int i = 0;i <p.size() ;i++){
-//			System.out.print(p.indexOf(i));
-			p.get(i).depurar();
-		}
-	}
-	
-	
+		System.out.println("Número de sílabas de la frase: "+syllables.size());
+		System.out.println("text \tending");
+		for(int i = 0;i <syllables.size() ;i++)
+			syllables.get(i).depurar();
+	}	
 }

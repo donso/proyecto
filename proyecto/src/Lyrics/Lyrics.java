@@ -3,34 +3,27 @@ package Lyrics;
 import java.util.Vector;
 
 public class Lyrics {
-	Vector<Phrase> p = new Vector<Phrase>(10);
+	Vector<Phrase> phrases;
 	
-	
-//	Los puntos separan frases.
-//	Los guiones separan sílabas.
-//	Los espacios separan palabras.
+	//TODO eliminar constructor
 	public Lyrics(String s){
+		phrases = new Vector<Phrase>();
 		String[] frases = s.split("\\.");
 		for(int i = 0;i <frases.length ;i++){
-			p.add(new Phrase(frases[i]));
+			phrases.add(new Phrase(frases[i]));
 		}
 	}
 	
-	//Devuelve número de frases
-	public int size(){
-		return p.size();
-	}
-
-	//Devuelve sílabas de una frase
-	public Vector<Syllable> getSyllables(int i){
-		return p.get(i).getSyllables();
+	public Vector<Phrase> getPhrases() {
+	    return phrases;
 	}
 	
-	
+	//TODO eliminar depurar
 	public void depurar(){
-		System.out.println("En Lyrics");
-		for(int i = 0;i <p.size() ;i++){
-			p.get(i).depurar();
+		System.out.println("\nEn Lyrics ");
+		System.out.println("Número de frases "+phrases.size());
+		for(int i = 0; i<phrases.size(); i++){
+			phrases.get(i).depurar();
 		}		
 	}
 

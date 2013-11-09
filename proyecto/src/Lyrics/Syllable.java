@@ -2,24 +2,24 @@ package Lyrics;
 
 public class Syllable {
 	String text;
-	boolean ending;
+	char ending;
 	
-	//Texto de la sílaba
-	//b = true si es sílaba al final de palabra, false en otro caso
-	public Syllable(String s, boolean b){
-		text = s;
-		ending = b;
+	//TODO eliminar contructor
+	public Syllable(String texto, char end){
+		text = texto;
+		ending = end;
 	}
 
 	public String getText(){
 		return text;
 	}
 
-	public boolean getEnding(){
+	public char getEnding(){
 		return ending;
 	}
 
+	//TODO eliminar depurar
 	public void depurar(){
-		System.out.println(text+" fin "+ending);
+		System.out.println(text+"  \t"+ending);
 	}
 }

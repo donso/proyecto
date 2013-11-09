@@ -6,37 +6,38 @@ import Lyrics.*;
 
 
 public class MusicPiece {
-	Vector<MusicElement> elements = new Vector<MusicElement>(10);
+	Vector<MusicElement> elements;
 	
 	public MusicPiece(Lyrics l){
-		for(int i=0; i<l.size(); i++){
-			Vector<Syllable> s = l.getSyllables(i);
+		elements = new Vector<MusicElement>();
+		Vector<Phrase> phrases = l.getPhrases();
+		for(int i=0; i<phrases.size(); i++){
+			Vector<Syllable> s = phrases.get(i).getSyllables();
 			adaptMusicElements(s);
-			//System.out.println("\nconst musicPiece "+s.size());
-			//for(int j=0; j<s.size(); j++){
-			//	s.get(j).examinar();				
-			//}
 		}
 	}
 	
-	//Añade las sílabas al nuevo modelo además de las posibles pausas entre sílabas de distintas palabras 
-	//que se pueden juntar.
-	//¿Hay pausas entre palabras? 
+	//Añade las sílabas al nuevo modelo además de las posibles pausas 
 	void adaptMusicElements(Vector<Syllable> s){
 		String texto;
-		System.out.println("\nEn MusicPiece");
 		for(int j=0; j<s.size(); j++){
 			texto = s.get(j).getText();
-			System.out.println(texto+" size "+elements.size());
-			SyllableM silaba = new SyllableM(texto);
+			//vemos si es una vocal tónica
+			boolean tonica = texto.matches("[A-Z]*"); 
+			SyllableM silaba = new SyllableM(texto, tonica);
 			elements.add(silaba);
-			if(s.get(j).getEnding() && j+1!=s.size()){
-				String t1=s.get(j+1).getText();
-				if(texto.matches(".*[aeiou]$") && t1.matches("^[aeiou].*")){ //pausa opcional
-					elements.add(new Pause());
-				}
-			}
+			char ending = s.get(j).getEnding();
+			if(ending == ' ' || ending == ',' || ending == '.' || ending == '?' || ending == '!')
+				elements.add(new Pause());
 		}
 	}
-
+	
+	//TODO eliminar depurar
+	public void depurar(){
+		System.out.println("\nEn MusicPiece. Size: "+elements.size());
+		System.out.println("text \ttónica");
+		for(int i = 0; i<elements.size(); i++){
+			elements.get(i).depurar();
+		}
+	}
 }
