@@ -1,32 +1,36 @@
 package MusicPiece;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
-import Lyrics.*;
+import Lyrics.Lyrics;
+import Lyrics.Phrase;
+import Lyrics.Syllable;
 
 
 public class MusicPiece {
-	Vector<MusicElement> elements;
+	List<MusicElement> elements;
 	
 	public MusicPiece(Lyrics l){
-		elements = new Vector<MusicElement>();
-		Vector<Phrase> phrases = l.getPhrases();
+		elements = new ArrayList<MusicElement>();
+		List<Phrase> phrases = l.getPhrases();
 		for(int i=0; i<phrases.size(); i++){
-			Vector<Syllable> s = phrases.get(i).getSyllables();
+			List<Syllable> s = phrases.get(i).getSyllables();
 			adaptMusicElements(s);
 		}
 	}
 	
 	//Añade las sílabas al nuevo modelo además de las posibles pausas 
-	void adaptMusicElements(Vector<Syllable> s){
+	void adaptMusicElements(List<Syllable> s){
 		String texto;
 		for(int j=0; j<s.size(); j++){
-			texto = s.get(j).getText();
+			texto = s.get(j).getText().toString();
 			//vemos si es una vocal tónica
 			boolean tonica = texto.matches("[A-Z]*"); 
 			SyllableM silaba = new SyllableM(texto, tonica);
 			elements.add(silaba);
-			char ending = s.get(j).getEnding();
+			char ending = s.get(j).getEnding().getText();
 			if(ending == ' ' || ending == ',' || ending == '.' || ending == '?' || ending == '!')
 				elements.add(new Pause());
 		}

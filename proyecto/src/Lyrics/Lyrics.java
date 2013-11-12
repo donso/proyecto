@@ -1,20 +1,16 @@
 package Lyrics;
 
-import java.util.Vector;
+import java.util.List;
 
-public class Lyrics {
-	Vector<Phrase> phrases;
+import org.modelcc.IModel;
+import org.modelcc.Separator;
+import org.modelcc.Suffix;
+
+public class Lyrics implements IModel{
+	List<Phrase> phrases;
 	
-	//TODO eliminar constructor
-	public Lyrics(String s){
-		phrases = new Vector<Phrase>();
-		String[] frases = s.split("\\.");
-		for(int i = 0;i <frases.length ;i++){
-			phrases.add(new Phrase(frases[i]));
-		}
-	}
 	
-	public Vector<Phrase> getPhrases() {
+	public List<Phrase> getPhrases() {
 	    return phrases;
 	}
 	

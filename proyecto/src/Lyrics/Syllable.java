@@ -1,20 +1,18 @@
 package Lyrics;
 
-public class Syllable {
-	String text;
-	char ending;
-	
-	//TODO eliminar contructor
-	public Syllable(String texto, char end){
-		text = texto;
-		ending = end;
-	}
+import org.modelcc.IModel;
+import org.modelcc.Optional;
+import org.modelcc.types.NonQuotedStringModel;
 
-	public String getText(){
+public class Syllable implements IModel{
+	NonQuotedStringModel text;
+	@Optional Ending ending;
+	
+	public NonQuotedStringModel getText(){
 		return text;
 	}
 
-	public char getEnding(){
+	public Ending getEnding(){
 		return ending;
 	}
 

@@ -1,32 +1,16 @@
 package Lyrics;
 
-import java.util.Vector;
+import java.util.List;
 
-public class Phrase {
-	Vector<Syllable> syllables;
-	
-	//TODO eliminar constructor
-	public Phrase(String s){
-		syllables = new Vector<Syllable>();
-		String[] silabas = s.split(" ");
-		int indice = 0;
+import org.modelcc.IModel;
+import org.modelcc.Suffix;
 
-		silabas = s.split("-|_|,| |¿|\\?|!|¡");
-		int i = 0;
-		char ending ;
-		for(;i<silabas.length-1 ;i++){
-			indice = s.indexOf(silabas[i], indice);
-			ending = s.charAt( indice + silabas[i].length());
-			syllables.addElement(new Syllable(silabas[i], ending)); 
-			indice += silabas[i].length();
-		}
-		ending = '.';
-		syllables.addElement(new Syllable(silabas[i], ending)); 
-	}
-	
+@Suffix(".")
+public class Phrase implements IModel{
+	List<Syllable> syllables;
 
 	//Devuelve sílabas de la frase
-	public Vector<Syllable> getSyllables(){
+	public List<Syllable> getSyllables(){
 		return syllables;
 	}
 
