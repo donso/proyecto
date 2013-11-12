@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.modelcc.IModel;
 
+
 public class Lyrics implements IModel{
-	List<Phrase> phrases;
-	
+	List<Phrase> phrases;	
 	
 	public List<Phrase> getPhrases() {
 	    return phrases;

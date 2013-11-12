@@ -15,8 +15,8 @@ public class Pruebas {
     {
         //Usar diccionarios para procesar la letra y obtener las sílabas?
 
-    	String s = "TEN-go_UN trac-TOR a-ma-RI-llo.QUE_ES LO QUE SE LLE-va_a-HO-ra.";
-//    	s = "a-vi-ÓN pe-rro.";
+    	String s = "TEN-go_UN trac-TOR a-ma-RI-llo.QUE_ES LO QUE SE LLE-va_a-HO-ra?";
+//    	String s = "U-na FRA-se.O-tra.";
     	
         System.out.println("Frases originales:\n"+s);
         

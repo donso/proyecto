@@ -5,13 +5,13 @@ import org.modelcc.Optional;
 
 public class Syllable implements IModel{
 	Text text;
-	@Optional Ending ending;
+	@Optional SyllableEnding ending;
 	
 	public Text getText(){
 		return text;
 	}
 
-	public Ending getEnding(){
+	public SyllableEnding getEnding(){
 		return ending;
 	}
 

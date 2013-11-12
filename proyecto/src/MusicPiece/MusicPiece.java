@@ -3,7 +3,7 @@ package MusicPiece;
 import java.util.ArrayList;
 import java.util.List;
 
-import Lyrics.Ending;
+import Lyrics.SyllableEnding;
 import Lyrics.Lyrics;
 import Lyrics.Phrase;
 import Lyrics.Syllable;
@@ -18,6 +18,7 @@ public class MusicPiece {
 		for(int i=0; i<phrases.size(); i++){
 			List<Syllable> s = phrases.get(i).getSyllables();
 			adaptMusicElements(s);
+			elements.add(new Pause());
 		}
 	}
 
@@ -30,7 +31,7 @@ public class MusicPiece {
 			boolean tonica = texto.matches("[A-ZÁÉÍÓÚ]+"); 
 			SyllableM silaba = new SyllableM(texto, tonica);
 			elements.add(silaba);
-			Ending e = s.get(j).getEnding();
+			SyllableEnding e = s.get(j).getEnding();
 			if(e != null){
 				char ending = e.getText();
 				if(ending == ' ' || ending == ',' || ending == '.' || ending == '?' || ending == '!')
