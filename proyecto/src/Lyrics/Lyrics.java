@@ -3,8 +3,6 @@ package Lyrics;
 import java.util.List;
 
 import org.modelcc.IModel;
-import org.modelcc.Separator;
-import org.modelcc.Suffix;
 
 public class Lyrics implements IModel{
 	List<Phrase> phrases;

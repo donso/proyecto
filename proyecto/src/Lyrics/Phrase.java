@@ -5,7 +5,9 @@ import java.util.List;
 import org.modelcc.IModel;
 import org.modelcc.Suffix;
 
-@Suffix(".")
+
+@Suffix("\\.")
+
 public class Phrase implements IModel{
 	List<Syllable> syllables;
 

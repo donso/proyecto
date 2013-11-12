@@ -16,17 +16,20 @@ public class Pruebas {
         //Usar diccionarios para procesar la letra y obtener las sílabas?
 
     	String s = "TEN-go_UN trac-TOR a-ma-RI-llo.QUE_ES LO QUE SE LLE-va_a-HO-ra.";
-    	s = "A.";
+//    	s = "a-vi-ÓN pe-rro.";
+    	
         System.out.println("Frases originales:\n"+s);
         
 		try {
 			Model model = JavaModelReader.read(Lyrics.class);
 			Parser<Lyrics> parser = ParserFactory.create(model);
-        
+
 	        //Leer una letra
 	        Lyrics l;
 			l = parser.parse(s);
 	        l.depurar();
+
+	        //Transformar Lyric a MusicPiece
 	        MusicPiece m = new MusicPiece(l);
 	        m.depurar();
 		} catch (ParserException e) {
@@ -37,6 +40,5 @@ public class Pruebas {
 			e.printStackTrace();
 		}
 
-        //Transformar Lyric a MusicPiece
     } 
 }

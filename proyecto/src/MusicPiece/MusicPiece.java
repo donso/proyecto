@@ -2,8 +2,8 @@ package MusicPiece;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
+import Lyrics.Ending;
 import Lyrics.Lyrics;
 import Lyrics.Phrase;
 import Lyrics.Syllable;
@@ -20,19 +20,22 @@ public class MusicPiece {
 			adaptMusicElements(s);
 		}
 	}
-	
+
 	//Añade las sílabas al nuevo modelo además de las posibles pausas 
 	void adaptMusicElements(List<Syllable> s){
 		String texto;
 		for(int j=0; j<s.size(); j++){
 			texto = s.get(j).getText().toString();
 			//vemos si es una vocal tónica
-			boolean tonica = texto.matches("[A-Z]*"); 
+			boolean tonica = texto.matches("[A-ZÁÉÍÓÚ]+"); 
 			SyllableM silaba = new SyllableM(texto, tonica);
 			elements.add(silaba);
-			char ending = s.get(j).getEnding().getText();
-			if(ending == ' ' || ending == ',' || ending == '.' || ending == '?' || ending == '!')
-				elements.add(new Pause());
+			Ending e = s.get(j).getEnding();
+			if(e != null){
+				char ending = e.getText();
+				if(ending == ' ' || ending == ',' || ending == '.' || ending == '?' || ending == '!')
+					elements.add(new Pause());
+			}
 		}
 	}
 	
