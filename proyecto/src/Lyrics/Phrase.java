@@ -3,11 +3,8 @@ package Lyrics;
 import java.util.List;
 
 import org.modelcc.IModel;
-import org.modelcc.Optional;
-import org.modelcc.Suffix;
 
 
-//@Suffix("\\.")
 
 public class Phrase implements IModel{
 	List<Syllable> syllables;
@@ -28,6 +25,6 @@ public class Phrase implements IModel{
 		System.out.println("text \tending");
 		for(int i = 0;i <syllables.size() ;i++)
 			syllables.get(i).depurar();
-		System.out.println("\nending phrase "+ending.getText());
+		System.out.println("\nending phrase "+ending);
 	}	
 }

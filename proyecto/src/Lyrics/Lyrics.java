@@ -3,9 +3,11 @@ package Lyrics;
 import java.util.List;
 
 import org.modelcc.IModel;
+import org.modelcc.Separator;
 
 
 public class Lyrics implements IModel{
+	@Separator("[ \n\t]*")
 	List<Phrase> phrases;	
 	
 	public List<Phrase> getPhrases() {
