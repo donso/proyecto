@@ -4,5 +4,5 @@ public abstract class MusicElement {
 	int duration = 0;
 	
 	//TODO eliminar depurar
-	void depurar(){}
+	public void depurar(){}
 }

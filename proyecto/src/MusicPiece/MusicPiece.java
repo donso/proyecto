@@ -22,6 +22,10 @@ public class MusicPiece {
 		}
 	}
 
+	public List<MusicElement> getElements(){
+		return elements;
+	}
+	
 	//Añade las sílabas al nuevo modelo además de las posibles pausas 
 	void adaptMusicElements(List<Syllable> s){
 		String texto;
@@ -42,8 +46,8 @@ public class MusicPiece {
 	
 	//TODO eliminar depurar
 	public void depurar(){
-		System.out.println("\nEn MusicPiece. Size: "+elements.size());
-		System.out.println("text \ttónica");
+		System.err.println("\nEn MusicPiece. Size: "+elements.size());
+		System.err.println("text \ttónica");
 		for(int i = 0; i<elements.size(); i++){
 			elements.get(i).depurar();
 		}

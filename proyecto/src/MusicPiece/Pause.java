@@ -5,7 +5,7 @@ public class Pause extends MusicElement{
 	Pause(){}
 	
 	//TODO eliminar depurar
-	void depurar(){
-		System.out.println("<pausa>");
+	public void depurar(){
+		System.err.print("<pausa>");
 	}
 }

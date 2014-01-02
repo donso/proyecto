@@ -6,6 +6,8 @@ import org.modelcc.parser.ParserFactory;
 
 import Lyrics.Lyrics;
 import MusicPiece.MusicPiece;
+import MusicPiece.SyllableM;
+import MusicPieceWriter.MusicPieceWriter;
 
 
 public class Pruebas {
@@ -15,7 +17,7 @@ public class Pruebas {
     {
         //Usar diccionarios para procesar la letra y obtener las sílabas?
 
-    	String s = "TEN-go_UN trac-TOR a-ma-RI-llo. QUE_ES LO QUE SE LLE-va_a-HO-ra?";
+    	String s = "TEN-go_UN trac-TOR a-ma-RI-llo.";
     	
         System.out.println("Frases originales:\n"+s);
         
@@ -26,11 +28,21 @@ public class Pruebas {
 	        //Leer una letra
 	        Lyrics l;
 			l = parser.parse(s);
-	        l.depurar();
+	       // l.depurar();
 
 	        //Transformar Lyric a MusicPiece
 	        MusicPiece m = new MusicPiece(l);
-	        m.depurar();
+//	        m.depurar();
+	        
+	        //Generar ritmo
+		    MusicPieceWriter mpw = new MusicPieceWriter(m, 2);
+			SyllableM s1 = new SyllableM("TEN", true);
+			SyllableM s2 = new SyllableM("llo", false);
+
+		    mpw.generateRhythm(s1, s2);
+//		    regenerar con distinto ritmo
+		    mpw.generateRhythm(s1, s2);
+		    
 		} catch (ParserException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

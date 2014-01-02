@@ -3,15 +3,31 @@ package MusicPiece;
 public class SyllableM extends MusicElement{
 	int note;
 	String text;
-	boolean tonica;
+	boolean tonic;
 	
-	SyllableM(String texto, boolean tonic){
+	public SyllableM(String texto, boolean tonica){
 		text = texto;
-		tonica = tonic;
+		tonic = tonica;
 	}
 	
+	public boolean getTonic(){
+		return tonic;
+	}
+	
+	public String getText(){
+		return text;
+	}
+
+    public boolean equals(Object obj) {
+        if (obj instanceof SyllableM)
+            return text.equals(((SyllableM)obj).getText()) && tonic==((SyllableM) obj).getTonic();
+        else
+            return false;
+    }
+    
 	//TODO eliminar depurar
-	void depurar(){
-		System.out.println(text+" \t"+tonica);
+	public void depurar(){
+//		System.err.println(text+" \t"+tonic);
+		System.err.print(text+" ");
 	}
 }
