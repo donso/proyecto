@@ -17,9 +17,9 @@ public class Pruebas {
     {
         //Usar diccionarios para procesar la letra y obtener las sílabas?
 
-    	String s = "TEN-go_UN trac-TOR a-ma-RI-llo.";
-    	
-        System.out.println("Frases originales:\n"+s);
+    	String s = "TEN-go_un trac-TOR. SE LLE-va_a-HO-ra.";
+    	    	
+//        System.out.println("Frases originales:\n"+s);
         
 		try {
 			Model model = JavaModelReader.read(Lyrics.class);
@@ -28,21 +28,26 @@ public class Pruebas {
 	        //Leer una letra
 	        Lyrics l;
 			l = parser.parse(s);
-	       // l.depurar();
+			System.err.println("DEPURANDO LYTICS");
+	        l.depurar();
 
 	        //Transformar Lyric a MusicPiece
 	        MusicPiece m = new MusicPiece(l);
-//	        m.depurar();
+			System.err.println("DEPURANDO MUSICPIECE");
+	        m.depurar();
 	        
 	        //Generar ritmo
 		    MusicPieceWriter mpw = new MusicPieceWriter(m, 2);
 			SyllableM s1 = new SyllableM("TEN", true);
-			SyllableM s2 = new SyllableM("llo", false);
+			SyllableM s2 = new SyllableM("ra", false);
 
-		    mpw.generateRhythm(s1, s2);
+		    double importanciaProfundidad = 1, ajusteAlCompas = 1, relacionTonicasAtonas=1, importanciaMediaVarianza=1, mediaIdeal=2, varianzaIdeal=1, importanciaespacios = 1;
+		    mpw.generateRhythm(s1, s2, importanciaProfundidad, ajusteAlCompas, relacionTonicasAtonas, importanciaMediaVarianza, mediaIdeal, varianzaIdeal,importanciaespacios);
+//		    ver traza del programa y ajustar la heuristica
 //		    regenerar con distinto ritmo
-		    mpw.generateRhythm(s1, s2);
-		    
+//			SyllableM s3 = new SyllableM("trac", false);
+	//	    mpw.generateRhythm(s1, s3, importanciaProfundidad, ajusteAlCompas, relacionTonicasAtonas, importanciaMediaVarianza, mediaIdeal, varianzaIdeal,importanciaespacios);
+
 		} catch (ParserException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

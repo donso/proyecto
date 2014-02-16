@@ -21,10 +21,10 @@ public class Phrase implements IModel{
 
 	//TODO eliminar depurar
 	public void depurar(){
-		System.out.println("NÃºmero de sÃ­labas de la frase: "+syllables.size());
+		System.out.println("Número de sílabas de la frase: "+syllables.size());
 		System.out.println("text \tending");
 		for(int i = 0;i <syllables.size() ;i++)
 			syllables.get(i).depurar();
-		System.out.println("\nending phrase "+ending);
+		System.out.println("\nending phrase "+ending.getText());
 	}	
 }

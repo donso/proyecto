@@ -4,7 +4,7 @@ import org.modelcc.IModel;
 import org.modelcc.Pattern;
 import org.modelcc.Value;
 
-@Pattern(regExp="_|-| ")
+@Pattern(regExp="-| ")
 
 public class SyllableEnding implements IModel{
 	@Value char text;

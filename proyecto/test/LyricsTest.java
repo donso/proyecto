@@ -105,9 +105,9 @@ public class LyricsTest {
 		try {
 			model = JavaModelReader.read(Lyrics.class);
 			Parser<Lyrics> parser = ParserFactory.create(model);
-	        Lyrics l = parser.parse("U-na_AR se.");
+	        Lyrics l = parser.parse("U-na AR se.");
 	        assertEquals("-", String.valueOf(l.getPhrases().get(0).getSyllables().get(0).getEnding().getText()));
-	        assertEquals("_", String.valueOf(l.getPhrases().get(0).getSyllables().get(1).getEnding().getText()));
+	        assertEquals(" ", String.valueOf(l.getPhrases().get(0).getSyllables().get(1).getEnding().getText()));
 	        assertEquals(" ", String.valueOf(l.getPhrases().get(0).getSyllables().get(2).getEnding().getText()));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

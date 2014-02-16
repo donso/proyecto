@@ -4,7 +4,7 @@ import org.modelcc.IModel;
 import org.modelcc.Pattern;
 import org.modelcc.Value;
 
-@Pattern(regExp="[a-zA-ZáéíóúÁÉÍÓÚ]+")
+@Pattern(regExp="[a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃ�Ã‰Ã�Ã“Ãš_]+")
 
 public class Text implements IModel {
 

@@ -18,28 +18,37 @@ public class MusicPiece {
 		for(int i=0; i<phrases.size(); i++){
 			List<Syllable> s = phrases.get(i).getSyllables();
 			adaptMusicElements(s);
-			elements.add(new Pause());
+			elements.add(new Pause(phrases.get(i).getEnding().getText()));
 		}
 	}
-
+//elimniar
+	public MusicPiece(ArrayList<MusicElement> copia){
+		elements = new ArrayList<MusicElement>(copia);
+	}
+	
 	public List<MusicElement> getElements(){
 		return elements;
 	}
 	
-	//Añade las sílabas al nuevo modelo además de las posibles pausas 
+	
+	public void setElementDuration(int pos, int dur){
+		elements.get(pos).duration=dur;
+	}
+	
+	//AÃ±ade las sÃ­labas al nuevo modelo ademÃ¡s de las posibles pausas 
 	void adaptMusicElements(List<Syllable> s){
 		String texto;
 		for(int j=0; j<s.size(); j++){
 			texto = s.get(j).getText().toString();
-			//vemos si es una vocal tónica
-			boolean tonica = texto.matches("[A-ZÁÉÍÓÚ]+"); 
+			//vemos si es una vocal tÃ³nica
+			boolean tonica = texto.matches("[A-ZÃ�Ã‰Ã�Ã“Ãš]+"); 
 			SyllableM silaba = new SyllableM(texto, tonica);
 			elements.add(silaba);
 			SyllableEnding e = s.get(j).getEnding();
 			if(e != null){
 				char ending = e.getText();
 				if(ending == ' ' || ending == ',' || ending == '.' || ending == '?' || ending == '!')
-					elements.add(new Pause());
+					elements.add(new Pause(ending));
 			}
 		}
 	}
